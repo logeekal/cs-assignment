@@ -1,0 +1,33 @@
+body{
+    font-size: small;
+}
+
+* {
+    border: 1px solid black;
+}
+
+.page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-bar {
+    flex: 0.05
+}
+
+.main-body {
+    display: flex;
+    flex-direction: row;
+    flex: 0.95
+}
+
+.main-body-left-menu {
+    height: 100%;
+    flex: 0.2
+}
+
+.main-body-right     {
+    flex: 0.8;
+    width: auto
+}

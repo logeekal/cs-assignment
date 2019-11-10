@@ -1,0 +1,26 @@
+// /* You can add global styles to this file, and also import other style files */
+// $themes: (
+//     light:  (
+//         backgroundColor: "#DDD",
+//         textColor: "#111",
+
+//     ),
+//     dark:   (
+//         backgroundColor: "#111",
+//         textColor: "#DDD"
+//     )
+// )
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 10px; }
+
+.mat-icon-no-colormat-icon{
+    font-family: 'Material Icons' !important;
+    color: green;
+  }
+
+
+  

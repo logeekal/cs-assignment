@@ -1,0 +1,77 @@
+$trends-size: 8px;
+
+.chart-handler-full {
+  margin: 10px;
+  background-color: white;
+  .chart-full-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    font-size: medium;
+    font-weight: 600;
+  }
+}
+
+
+
+hr {
+  border-width: 0px;
+  border-color: rgb(200, 200, 200);
+  background-color: rgb(200, 200, 200);
+  height: 0.7px;
+  margin: 0;
+  padding: 0;
+}
+
+.chart-handler-compact {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  border: 0px solid black;
+  font-size: 5px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0.2px 0.2px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s;
+  &:hover {
+    box-shadow: 0.2px 0.2px 4px 1px rgba(0, 0, 0, 0.2);
+    transform: scale(0.98);
+    cursor: pointer;
+  }
+
+  .chart-title {
+    text-transform: uppercase;
+    margin-top: 0px;
+    // margin-bottom: 10px;
+    color: rgb(100, 100, 100);
+  }
+
+  .chart-summary {
+    padding: 2px;
+    margin: 0px;
+    font-size: 20px;
+    color: rgb(50, 50, 50);
+  }
+
+  .chart-trends {
+    padding-bottom: 5px;
+    font-size: $trends-size;
+    .trend-down {
+      color: red;
+    }
+    .trend-up {
+      color: green;
+    }
+    .feather {
+      width: $trends-size;
+      height: $trends-size;
+    }
+  }
+}
+
+// .trend-down {
+//     color: red;
+// }

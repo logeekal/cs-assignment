@@ -1,0 +1,60 @@
+
+<div *ngIf="mode === 'full'" class="chart-handler-full">
+        <div class="chart-full-header">
+          <div class="chart-full-header-title">
+            {{name}}
+          </div>
+          <div class="chart-full-header-filter">
+           </div>
+        </div>
+        <span layout="row"><hr flex/></span>
+
+
+        <app-chart
+          [name]="name"
+          [type]="type"
+          [datasetOptions]="datasetOptions"
+          [chartOptions]="chartOptions"
+          width="auto"
+          height="120"
+          [data]="data"
+        >
+      
+        </app-chart>
+</div>
+
+<div *ngIf="mode === 'compact'" class="chart-handler-compact">
+  <div class="chart-title">
+    {{name}}
+  </div>
+  <div class="chart-summary">
+      {{getSummaryData()}}
+  </div>
+  
+  <div class="chart-trends">
+      
+    
+    <span class="trend-down" *ngIf="getChartTrend().trend < 0">
+        {{getChartTrend().trendExpression}}
+        <i class="trend-sign" data-feather="corner-right-down" color="red"></i>
+    </span>
+    <span class="trend-up" *ngIf="getChartTrend().trend > 0">
+        {{getChartTrend().trendExpression}}     <i data-feather="corner-right-up" color="green"></i>
+      </span>
+  </div>
+  <app-chart
+      [name]="name"
+      [type]="type"
+      [datasetOptions]="datasetOptions"
+      [chartOptions]="chartOptions"
+      width="80"
+      height="40"
+      [data]="data"
+    >
+    </app-chart>
+ </div>
+
+
+
+
+
