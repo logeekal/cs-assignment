@@ -11,7 +11,7 @@ import { DataProviderService } from './../services/data-provider.service';
 export class ChartComponent implements OnInit {
   @Input() name: String;
   @Input() type: Chart.ChartType;
-  @Input() datasetOptions: Chart.ChartDataSets;
+  @Input() datasetOptions: Chart.ChartDataSets | any;
   @Input() chartOptions: Chart.ChartOptions;
   @Input() width: string;
   @Input() height: string;

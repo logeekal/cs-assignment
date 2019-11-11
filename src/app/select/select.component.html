@@ -1,0 +1,40 @@
+<!-- <div>
+  <button (click)="open(dropdown, origin)" #origin>
+    <ng-template [ngIf]="!isOpen" [ngIfElse]="searchBar" >
+      {{ label }}
+    </ng-template>
+
+    <ng-template #searchBar>
+      <input [formControl]="searchControl" >
+    </ng-template>
+  </button>
+
+  <ng-template #dropdown>
+
+  </ng-template>
+
+
+</div> -->
+
+<mat-form-field  class="custom-form" [ngStyle]="{'width': width, 'font-size.px': 8}" appearance="none">
+<mat-select [formControl]="selectItemCtrl" #singleSelect>
+  
+  <mat-option >
+      <ngx-mat-select-search [formControl]="searchControl" 
+          aria-placeholder="search"
+          [placeholderLabel]="placeholderLabel"
+          [noEntriesFoundLabel]= null
+          >
+
+      </ngx-mat-select-search>
+  </mat-option>
+  <mat-select-trigger>
+      <span [class]="selectItemCtrl.value.icon"></span>
+        {{selectItemCtrl.value.id}} 
+  </mat-select-trigger>
+  <mat-option *ngFor="let item of items; let idx=index" [value]="item" value="bank" >
+    <span class="{{item.icon}}"></span>
+    {{item.label}}
+  </mat-option>
+</mat-select>
+</mat-form-field>

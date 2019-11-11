@@ -1,5 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -13,12 +15,23 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
 import { MatExpansionModule } from "@angular/material/expansion";
 import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 import { MainScreenComponent } from "./main-screen/main-screen.component";
 import { ChartHandlerComponent } from "./chart-handler/chart-handler.component";
 import { MenuComponent } from './menu/menu.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
+import { AvatarComponent } from './avatar/avatar.component';
+import { SelectComponent } from './select/select.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { PageStatsComponent } from './page-stats/page-stats.component';
+import { SocialTrafficComponent } from './social-traffic/social-traffic.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +40,11 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
     MainScreenComponent,
     ChartHandlerComponent,
     MenuComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    AvatarComponent,
+    SelectComponent,
+    PageStatsComponent,
+    SocialTrafficComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +54,13 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
     MatSidenavModule,
     MatIconModule,
     MatExpansionModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    NgxMatSelectSearchModule,
+    MatTableModule,
+    MatProgressBarModule
+    
   ],
   providers: [DataProviderService],
   bootstrap: [AppComponent]

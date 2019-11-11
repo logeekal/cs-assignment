@@ -3,7 +3,7 @@ body{
 }
 
 * {
-    border: 1px solid black;
+    border: 0px solid black;
 }
 
 .page-container {
@@ -13,13 +13,23 @@ body{
 }
 
 .header-bar {
-    flex: 0.05
+    height: 40px;
+    display:flex;
+    flex-direction: row;
+    border-bottom: 0.4px solid rgba(150,150,150, 0.5);
+
+    .home   {
+        flex: .15;
+        border-right: 1px solid rgba(150,150,150, 0.5);
+    }
+    .main-header    {
+        flex: .85
+    }
 }
 
 .main-body {
     display: flex;
     flex-direction: row;
-    flex: 0.95
 }
 
 .main-body-left-menu {

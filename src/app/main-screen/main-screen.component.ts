@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataProviderService } from './../services/data-provider.service';
 
 @Component({
   selector: 'app-main-screen',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainScreenComponent implements OnInit {
 
-  constructor() { }
+  public countryList ;
+  constructor(private dataProvider : DataProviderService) { }
 
   ngOnInit() {
+    this.countryList = this.dataProvider.countryDataWithIcon;
   }
 
 }

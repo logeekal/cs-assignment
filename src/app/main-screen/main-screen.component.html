@@ -3,46 +3,64 @@
     <app-menu></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="detail-chart">
-      <app-chart-handler
-        mode="full"
-        name="Number of Visits"
-        colorString="rgb(99,0,200)"
-      >
-      </app-chart-handler>
+    <div class="main-content">
+      <div class="main-content-header">
+        <div class="main-content-header-home">asd</div>
+        <app-select
+          [items]="countryList"
+          [withIcon]=true
+          [width]="60"
+        ></app-select>
+      </div>
+      <div class="main-content-body">
+          <div class="detail-chart">
+              <app-chart-handler
+                mode="full"
+                name="Number of Visits"
+                colorString="rgb(99,0,200)"
+              >
+              </app-chart-handler>
+            </div>
+        
+            <div class="summary-chart">
+              <app-chart-handler
+                mode="compact"
+                name="avg. daily users"
+                colorString="rgb(200,50,50)"
+              >
+              </app-chart-handler>
+              <app-chart-handler
+                mode="compact"
+                name="Total Visits"
+                colorString="rgb(200,50,50)"
+              >
+              </app-chart-handler>
+              <app-chart-handler
+                mode="compact"
+                name="Bounce Rate"
+                colorString="rgb(200,50,50)"
+              >
+              </app-chart-handler>
+              <app-chart-handler
+                mode="compact"
+                name="Avg. visit duration"
+                colorString="rgb(200,50,50)"
+              >
+              </app-chart-handler>
+              <app-chart-handler
+                mode="compact"
+                name="Unique Visitors"
+                colorString="rgb(200,50,50)"
+              >
+              </app-chart-handler>
+            </div>
+            <div class="main-content-footer">
+              <app-page-stats></app-page-stats>
+              <app-social-traffic></app-social-traffic>
+            </div>
+
+      </div>
     </div>
 
-    <div class="summary-chart">
-      <app-chart-handler
-        mode="compact"
-        name="avg. daily users"
-        colorString="rgb(200,50,50)"
-      >
-      </app-chart-handler>
-      <app-chart-handler
-        mode="compact"
-        name="Total Visits"
-        colorString="rgb(200,50,50)"
-      >
-      </app-chart-handler>
-      <app-chart-handler
-        mode="compact"
-        name="Bounce Rate"
-        colorString="rgb(200,50,50)"
-      >
-      </app-chart-handler>
-      <app-chart-handler
-        mode="compact"
-        name="Avg. visit duration"
-        colorString="rgb(200,50,50)"
-      >
-      </app-chart-handler>
-      <app-chart-handler
-        mode="compact"
-        name="Unique Visitors"
-        colorString="rgb(200,50,50)"
-      >
-      </app-chart-handler>
-    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

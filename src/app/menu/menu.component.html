@@ -1,5 +1,16 @@
-<app-menu-item
-    [menu]="menu"
->
+<div class="home-nav">
+    <i class="home-icon" data-feather="home"></i>
+</div>
+<hr class="full" />
+<div class="avatar">
+    <app-avatar></app-avatar>
+</div>
 
-</app-menu-item>
+<hr class="full" />
+<div *ngFor="let menuItem of menu">
+
+    <app-menu-item [menu]="menuItem">
+
+    </app-menu-item>
+    <hr class="compact" />
+</div>

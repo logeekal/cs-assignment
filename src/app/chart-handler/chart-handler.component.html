@@ -5,7 +5,23 @@
             {{name}}
           </div>
           <div class="chart-full-header-filter">
-           </div>
+            <div class="chart-filter">
+              <app-select
+                [items]="seletableMonths"
+                [withIcon]=false
+                [width]="60"
+              >           
+              </app-select>  
+            </div>
+            <div class="chart-filter">
+              <app-select
+              [items]="selectableYears"
+              [withIcon]=false
+              [width]="50"
+            >
+            </app-select>  
+        </div>
+          </div>
         </div>
         <span layout="row"><hr flex/></span>
 
@@ -16,7 +32,7 @@
           [datasetOptions]="datasetOptions"
           [chartOptions]="chartOptions"
           width="auto"
-          height="120"
+          height="300"
           [data]="data"
         >
       
@@ -47,12 +63,25 @@
       [type]="type"
       [datasetOptions]="datasetOptions"
       [chartOptions]="chartOptions"
-      width="80"
+      width="100"
       height="40"
       [data]="data"
     >
     </app-chart>
  </div>
+
+<div *ngIf="mode === 'slim'"  class="chat-handler slim">
+    <app-chart
+    [name]="name"
+    [type]="type"
+    [datasetOptions]="datasetOptions"
+    [chartOptions]="chartOptions"
+    width="auto"
+    height="20"
+    [data]="data"
+  >
+  </app-chart>
+</div>
 
 
 

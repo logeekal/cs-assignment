@@ -9,13 +9,13 @@ import { DataProviderService } from './../services/data-provider.service';
   styleUrls: ["./chart-handler.component.scss"]
 })
 export class ChartHandlerComponent implements OnInit {
-  @Input() mode: String;
-  @Input() name: String;
+  @Input() mode: string;
+  @Input() name: string;
   @Input() colorString: String;
 
   public chartOptions: Chart.ChartOptions;
 
-  public datasetOptions: Chart.ChartDataSets;
+  public datasetOptions: Chart.ChartDataSets | any;
 
   public type: Chart.ChartType;
 
@@ -30,10 +30,31 @@ export class ChartHandlerComponent implements OnInit {
   public currentYear: number;
 
   public trendData : any;
+  
+
+  public selectableYears : Array<Object> = [];
+
+  public seletableMonths : Array<Object> = [];
 
   constructor(private dataProvider: DataProviderService) {
+    for(let year of this.dataProvider.years){
+      this.selectableYears.push({
+        id: year,
+        label: year
+      });
+    }
 
+    for(let month in this.dataProvider.months){
+      this.seletableMonths.push({
+        idx: month,
+        id: this.dataProvider.months[month]['month'].substring(0,3).toUpperCase(),
+        label: this.dataProvider.months[month]['month']
+    });
   }
+
+    console.log(this.seletableMonths);
+    console.log(this.selectableYears)
+    }
 
   ngOnInit() {
 
@@ -97,7 +118,7 @@ export class ChartHandlerComponent implements OnInit {
       this.type = "bar"
 
 
-    } else if (this.mode === "compact") {
+    } else if (["compact","slim"].includes(this.mode)) {
       console.log(`Mode is ${this.mode}`)
       this.chartOptions = {
         showLines: true,
@@ -163,10 +184,10 @@ export class ChartHandlerComponent implements OnInit {
     let typeOfData = '';
     let symbol = '';
     let name = this.name.toLocaleLowerCase();
-    console.log(`in summary data :  `);
+    // console.log(`in summary data :  `);
     
     let currentContext = this.completedata.summary[this.currentYear][this.currentMonth];
-    console.log(this.completedata.summary)
+    // console.log(this.completedata.summary)
     if (name === 'bounce rate' || name.indexOf('avg') > -1){
       typeOfData = 'average';
       if(name === 'bounce rate'){

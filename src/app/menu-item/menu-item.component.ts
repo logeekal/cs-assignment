@@ -17,4 +17,13 @@ export class MenuItemComponent implements OnInit {
     console.log(this.menu)
   }
 
+  whenOpened(){
+    console.log('Expansion panel fired.');
+    this.menu['icon'] = 'expand_less'
+  }
+
+  whenClosed(index){
+    this.menu['icon'] = 'expand_more'
+  }
+
 }

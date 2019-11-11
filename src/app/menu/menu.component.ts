@@ -13,16 +13,19 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.menu = [{
-      header: "Header 1",
-      icon: 'thumbs-up',
+      header: "Dashboard",
+      logo: "align-left",
+      icon: 'expand_more',
       items: ['Item1', 'item2', 'item3']
     },{
-      header: "Header 2",
-      icon: 'thumbs-up',
+      header: "Calender",
+      logo: "calendar",
+      icon: 'expand_more',
       items: ['Item1', 'item2', 'item3']
     },{
-      header: "Header 3",
-      icon: 'thumbs-up',
+      header: "Inbox",
+      logo: "mail",
+      icon: 'expand_more',
       items: ['Item1', 'item2', 'item3']
     }]
   }
