@@ -5,11 +5,15 @@
   <mat-sidenav-content>
     <div class="main-content">
       <div class="main-content-header">
-        <div class="main-content-header-home">asd</div>
+        <div class="main-content-header-home">asd
+          <app-theme-toggle></app-theme-toggle>
+
+        </div>
         <app-select
           [items]="countryList"
           [withIcon]=true
-          [width]="60"
+          [width]="80"
+          defaultId="US"
         ></app-select>
       </div>
       <div class="main-content-body">

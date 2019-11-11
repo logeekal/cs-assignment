@@ -1,0 +1,18 @@
+@import '../app/chart-handler/chart-handler.component';
+@import '../app/menu/menu.component';
+@import '../app/avatar/avatar.component';
+@import '../app/menu-item/menu-item.component';
+@import '../app/select/select.component';
+@import '../app/main-screen/main-screen.component';
+
+
+@mixin componentThemes($theme) {
+    @include chart-handler($theme);
+    @include avatar($theme);
+    @include side-menu($theme);
+    @include menu-item($theme);
+    @include select($theme);
+    @include main-screen($theme)
+}
+
+

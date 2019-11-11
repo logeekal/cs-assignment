@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import * as Color from "color";
 import randomColor  from 'randomcolor';
 import { DataProviderService } from './../services/data-provider.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: "app-chart-handler",
@@ -31,6 +32,8 @@ export class ChartHandlerComponent implements OnInit {
 
   public trendData : any;
   
+
+
 
   public selectableYears : Array<Object> = [];
 
@@ -89,6 +92,8 @@ export class ChartHandlerComponent implements OnInit {
               display: true,
               gridLines:{
                 display: false,
+              },
+              ticks:  {
               }
             }
           ]
@@ -108,7 +113,7 @@ export class ChartHandlerComponent implements OnInit {
 
       this.datasetOptions = {
         backgroundColor: this.color.toString(),
-        barThickness: 6,
+        barThickness: 20,
         fill: true,
         borderCapStyle: "butt",
         borderWidth: 0,
@@ -180,6 +185,7 @@ export class ChartHandlerComponent implements OnInit {
   }
 
 
+
   getSummaryData(){
     let typeOfData = '';
     let symbol = '';
@@ -216,5 +222,20 @@ export class ChartHandlerComponent implements OnInit {
     this.trendData = {trendExpression, trend};
 
     return this.trendData;
+  }
+
+  monthChanged(month){
+    this.currentMonth = month.label;
+    let newData =  this.completedata.finalData[this.currentYear][this.currentMonth];
+    this.dataProvider.updateChartData(newData);
+
+  }
+
+  yearChanged(year){
+    console.log(`Handling year ${year.id}`);
+    this.currentYear= `${year.id}`;
+    console.log(this.completedata);
+    let newData =  this.completedata.finalData[this.currentYear][this.currentMonth];
+    this.dataProvider.updateChartData(newData);
   }
 }

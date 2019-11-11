@@ -27,7 +27,7 @@
       <td mat-cell *matCellDef="let element"> {{element.bounce_rate}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="trends">
+    <ng-container class="big" matColumnDef="trends">
         <th mat-header-cell *matHeaderCellDef> Trends </th>
         <td mat-cell *matCellDef="let element"> 
         <app-chart-handler

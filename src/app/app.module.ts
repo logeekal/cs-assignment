@@ -8,8 +8,11 @@ import { AppComponent } from "./app.component";
 import { ChartComponent } from "./chart/chart.component";
 
 import { DataProviderService } from "./services/data-provider.service";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ThemeService } from './services/theme/theme.service';
 
+
+
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
@@ -27,11 +30,14 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { SelectComponent } from './select/select.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 
 
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { PageStatsComponent } from './page-stats/page-stats.component';
 import { SocialTrafficComponent } from './social-traffic/social-traffic.component';
+import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
+
 
 @NgModule({
   declarations: [
@@ -45,9 +51,10 @@ import { SocialTrafficComponent } from './social-traffic/social-traffic.componen
     SelectComponent,
     PageStatsComponent,
     SocialTrafficComponent,
+    ThemeToggleComponent,
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -59,10 +66,11 @@ import { SocialTrafficComponent } from './social-traffic/social-traffic.componen
     MatSelectModule,
     NgxMatSelectSearchModule,
     MatTableModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSlideToggleModule
     
   ],
-  providers: [DataProviderService],
+  providers: [DataProviderService, ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

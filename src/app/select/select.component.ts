@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, map } from 'rxjs/operators';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-select',
@@ -13,9 +14,14 @@ export class SelectComponent implements OnInit {
 
   @Input() withIcon: Boolean;
 
-  @Input() placeholderLabel = "Country";
-
   @Input() width: string;
+
+  @Input() defaultId: string;
+
+  @Output() selectionChanged = new EventEmitter();
+
+
+
 
   public idKey: string = 'id';
 
@@ -33,18 +39,21 @@ export class SelectComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(`Now inititing select`)
     console.log(this.items)
     console.log(this.withIcon)
     this.width =  this.width+'px'
-    this.selectItemCtrl.setValue(this.items);
+
     this.originalItems = [...this.items];
+    
+    this.setdefaultValue(this.defaultId);
 
     if(this.model !== undefined ) {
       this.model = this.items.find(currentItem => currentItem[this.idKey] === this.model[this.idKey])
     }
 
     this.searchControl.valueChanges.subscribe(term => this.search(term))
-
+    this.newSelection()
   }
 
 
@@ -58,16 +67,26 @@ export class SelectComponent implements OnInit {
     return this.model ? this.model[this.labelKey] : 'Select....'
   }
 
-  // selected(){
-  //   return this.selectItemCtrl;
-  // }
 
-  // selectionChange(value){
-  //   console.log(`'Item Selected ${value}`);
-  //   // console.log(this.originalItems[idx])
-  //   // let selectedItem = this.originalItems.find(item=> {return item['id'] === value})
-  //   // console.log(selectedItem)
-  //   this.selectItemCtrl =  value
-  // }
+  setdefaultValue(defaultId){
+    console.log(`seaqrching for ${defaultId} in ${JSON.stringify(this.originalItems)}`);
+    if(defaultId){
+      let result= this.originalItems.find(item => {
+        console.log(`Now matching ${item.id}  and ${defaultId}`)
+        return  item.id === defaultId
+      })
+      this.selectItemCtrl.setValue(result);
+    }else{
+      this.selectItemCtrl.setValue(this.originalItems[0])
+    }
 
+  }
+
+  newSelection(){
+    this.selectItemCtrl.valueChanges.subscribe(val => {
+      console.log(`Value Changed to ${JSON.stringify(val)}`);
+      this.selectionChanged.emit(val);
+    })
+
+  }
 }

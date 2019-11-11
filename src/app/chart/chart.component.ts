@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { Chart }  from 'chart.js';
 import { DataProviderService } from './../services/data-provider.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-chart',
@@ -27,6 +28,8 @@ export class ChartComponent implements OnInit {
   public canvasWidth: string;
 
   public summary: any = {};
+
+  public newData : Observable<any>;
 
   constructor(private dataProvider : DataProviderService, private elementRef : ElementRef) { 
    
@@ -76,10 +79,17 @@ export class ChartComponent implements OnInit {
     // this.data = result.finalData;
     // this.summary =  result.summary;
 
-    Chart.defaults.global.defaultFontSize= 5;
+    Chart.defaults.global.defaultFontSize= 15;
 
     // console.log(this.summary);
     this.generateBarChart(this.data);
+    this.newData = this.dataProvider.updatingData;
+
+    this.newData.subscribe(newData => {
+      console.log(newData);
+      this.barChart.data.datasets[0].data =  newData.datasets[0].data;
+      this.barChart.update()
+    })
   }
 
 }

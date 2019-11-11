@@ -1,88 +1,104 @@
+@import '~@angular/material/theming';
 
-.avatar-container{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    .avatar-pic-container  {
-        border: 0px solid black;
-        width: 40px;
-        height: 40px;
-        position: relative;
-        align-self: center;
-       
-        .avatar{
-            width: 100%;
-            height: 100%;
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-        };
-        .overlay    {
-            background-color: white;
-            width: 15px;
-            height:15px;
-            border-radius: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            right: 0px;
-            bottom: 0px;
-            opacity: 0%;
-    
-            transition: all 0.3s ease-in;
-    
-            svg {
-                background-color: white;
-                border-radius: 50px;
-                color:rgb(50,50,50);
-                width: 10px;
-                height: 10px;
-            };            
-        };
-    
-        &:hover {
-            cursor: pointer;
-            .avatar{
-                opacity: 50%;
-            }
-            .overlay {
-                right: 0px;
-                bottom: 0px;
-                opacity: 100%;
-            }
-        }
-    };
 
-    .avatar-details-container   {
-        border: 0px solid black;
+@mixin avatar($theme) {
+
+    $accent: map-get($theme, accent);
+    $background: map-get($theme, background);
+    $primary: map-get($map: $theme, $key: primary );
+    $foreground: map-get($map: $theme, $key: foreground );
+
+    .avatar-container{
+        width: 100%;
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        .name-container{
-            display: flex;
-            .name   {
-                font-size: 5px;
-                font-weight: 500;
-                align-self: center;
-                padding-left: 5px;
+        align-self: center;
+        .avatar-pic-container  {
+            border: 0px solid mat-color($background);
+            width: 100px;
+            height: 100px;
+            position: relative;
+            align-self: center;
+            .avatar{
+                width: 100%;
+                height: 100%;
+                border-radius: 50px;
+                transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
             };
-            svg.status {
-                padding: 0px;
+            .overlay    {
+                background-color:  mat-color($foreground, default);
+                width: 2.5rem;
+                height:2.5rem;
+                border-radius: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                opacity: 0%;
+                transition: all 0.3s ease-in;
+        
+                svg {
+                    background-color: mat-color($background, card);
+                    border-radius: 50px;
+                    color:mat-color($foreground, text);
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    padding: 5px;
+                };            
+            };
+        
+            &:hover {
+                cursor: pointer;
+                .avatar{
+                    opacity: 50%;
+                }
+                .overlay {
+                    right: 0px;
+                    bottom: 0px;
+                    opacity: 100%;
+                }
             }
-        }
-       
-        .details {
-            font-size: 5px;
-            font-weight: 300;
-        }
+        };
     
+        .avatar-details-container   {
+            border: mat-color($foreground, text);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0.5rem;
+            .name-container{
+                display: flex;
+                .name   {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    align-self: center;
+                    color: mat-color($foreground);
+                    padding-left: 5px;
+                };
+                svg.status {
+                    margin: 0.5rem;
+                    align-self: center; 
+                }
+            }
+           
+            .details {
+                font-size: 1rem;
+                font-weight: 300;
+            }
+        
+        }
+        
     }
     
+    
 }
+
+
 
 
 

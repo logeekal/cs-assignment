@@ -5,15 +5,13 @@
     
   >
     <mat-expansion-panel-header
-      [@.disabled]="true"
-      expandedHeight="25px"
-      collapsedHeight="25px"
+     
     >
       <div class="menuicon">
         <mat-icon>{{ menu.icon }}</mat-icon>
       </div>
       <mat-panel-title>
-        <i [attr.data-feather]="menu.logo"></i>
+        <i [attr.data-feather]="menu.logo" class="icon"></i>
         {{ menu.header }}
       </mat-panel-title>
     </mat-expansion-panel-header>
@@ -24,3 +22,8 @@
     </mat-list>
   </mat-expansion-panel>
 </mat-accordion>
+
+
+<!-- [@.disabled]="true"
+expandedHeight="25px"
+collapsedHeight="25px" -->

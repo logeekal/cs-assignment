@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Chart } from 'chart.js';
 import { DataProviderService } from './services/data-provider.service';
+import { ThemeService } from './services/theme/theme.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +15,19 @@ export class AppComponent {
   barChart2 = [];
 
   data = {};
-  public dataProvider : DataProviderService;
 
-  constructor(dataProvider : DataProviderService){
-    this.dataProvider = dataProvider;
+  public isDarkTheme: Observable<boolean>;
+
+  constructor(private themeService: ThemeService,  private dataProvider : DataProviderService){
+
   }
 
 
 
   ngOnInit(){
     //this.generateBarChart(this.data);
+    this.isDarkTheme = this.themeService.isDarkTheme;
+    console.log(this.isDarkTheme)
     
   }
 

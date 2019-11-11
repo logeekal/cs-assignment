@@ -1,7 +1,31 @@
 @import '~@angular/material/theming';
-
+@import './component-themes.scss';
 
 @include mat-core();
+
+
+
+/// custom Foreground
+
+@function custom_mat-light-theme-foreground($color) {
+  @return (
+  base:              $color,
+  divider:           rgba($color, 0.20),
+  dividers:          rgba($color, 0.20),
+  disabled:          rgba($color, 0.28),
+  disabled-button:   rgba($color, 0.220),
+  disabled-text:     rgba($color, 0.28),
+  elevation:         $color,
+  hint-text:         rgba($color, 0.28),
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba($color, 0.44),
+  icons:             rgba($color, 0.44),
+  text:              rgba($color, 0.77),
+  slider-min:        rgba($color, 0.77),
+  slider-off:        rgba($color, 0.20),
+  slider-off-active: rgba($color, 0.28),
+)};
+
 
 
 $primary: mat-palette($mat-indigo);
@@ -10,5 +34,25 @@ $primary: mat-palette($mat-indigo);
 $accent: mat-palette($mat-pink, A200, A100, A400);
 $warn: mat-palette($mat-red);
 $theme: mat-light-theme($primary, $accent, $warn);
+$white-foreground: custom_mat-light-theme-foreground(black);
+$custom-fg-light-theme: map-merge($map1: $theme, $map2: (foreground: $white-foreground ));
 
-@include angular-material-theme($theme);
+@include angular-material-theme($custom-fg-light-theme);
+@include componentThemes($custom-fg-light-theme);
+
+
+// Our dark theme
+.dark-theme {
+    color: $light-primary-text;
+    $dark-primary: mat-palette($mat-yellow);
+    $dark-accent: mat-palette($mat-amber, A400, A100, A700);
+    $dark-warn: mat-palette($mat-red);
+    $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+    $dark-foreground: custom_mat-light-theme-foreground(white);
+    $custom-fg-dark-theme: map-merge($map1: $dark-theme, $map2: (foreground: $dark-foreground) );
+
+  
+    @include angular-material-theme($custom-fg-dark-theme);
+    @include componentThemes($custom-fg-dark-theme)
+  }

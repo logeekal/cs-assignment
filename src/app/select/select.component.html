@@ -16,8 +16,8 @@
 
 </div> -->
 
-<mat-form-field  class="custom-form" [ngStyle]="{'width': width, 'font-size.px': 8}" appearance="none">
-<mat-select [formControl]="selectItemCtrl" #singleSelect>
+<mat-form-field  class="custom-form" [ngStyle]="{'width': width}"  appearance="none">
+<mat-select [formControl]="selectItemCtrl"  #singleSelect>
   
   <mat-option >
       <ngx-mat-select-search [formControl]="searchControl" 
@@ -32,9 +32,14 @@
       <span [class]="selectItemCtrl.value.icon"></span>
         {{selectItemCtrl.value.id}} 
   </mat-select-trigger>
-  <mat-option *ngFor="let item of items; let idx=index" [value]="item" value="bank" >
+  <mat-option *ngFor="let item of items; let idx=index" 
+                [value]="item" 
+               >
     <span class="{{item.icon}}"></span>
     {{item.label}}
   </mat-option>
 </mat-select>
 </mat-form-field>
+
+
+<!-- [ngStyle]="{'width': width}"  -->

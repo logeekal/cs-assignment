@@ -1,41 +1,71 @@
-.home-nav   {
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .home-icon  {
-        cursor: pointer;
-    }
-}
+@import '~@angular/material/theming';
 
 
+@mixin side-menu($theme){
 
-.avatar {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;;
-};
-
-// hr{
-//     border: 0.2px solid rgb(200,200,200);
-//     color: rgb(200,200,200);
-// }
-
-hr{
-    border: 0.2px solid rgb(200,200,200);
-    color: rgb(200,200,200);
-    margin-top: 0px;
-    &.full   {
-            width: 100%;
-          
-        }
-    &.compact    {
-            width: 80%;
-        
-        };
+    $borders: 'rgb(255, 0, 0)';
     
+    @if $theme == 'dark-theme'{
+        $borders: 'rgb(200, 200, 200)';
+    }
+
+
+
+    //colors
+    $accent: map-get($theme, accent);
+    $background: map-get($theme, background);
+    $foreground: map-get($map: $theme , $key: foreground );
+    $background-color: mat-color($background, card);
+    $color: mat-color($primary);
+    $border-color: rgb(200, 200, 200);
+    $trends-size: 8px;
+
+    //typography
+    .home-nav   {
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .home-icon  {
+            cursor: pointer;
+        }
+    }
+    
+    
+    
+    .avatar {
+        height: 12rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;;
+    };
+    
+    // hr{
+    //     border: 0.2px solid rgb(200,200,200);
+    //     color: rgb(200,200,200);
+    // }
+    
+    hr{
+        border: 0.2px solid $borders;
+        color: $borders;
+        margin-top: 0px;
+        &.full   {
+                width: 100%;
+              
+            }
+        &.compact    {
+                width: 80%;
+            
+            };
+        
+    }
+    
+
+  
 }
+
+
+
 
 
 

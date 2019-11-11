@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
@@ -14,6 +15,10 @@ export class DataProviderService {
   public months: Array<any>;
 
   public years: Array<number>;
+
+  public updatingDataSubject = new Subject<any>();
+
+  public updatingData = this.updatingDataSubject.asObservable();
 
   constructor() {
     console.log(`Definining data provider Service.`);
@@ -364,24 +369,26 @@ export class DataProviderService {
   }
 
   getPageStats(){
-    return [{page:'/store/',traffic:'4283',unique:'3000',bounce_rate:'70.044361428905%'},
-    {page:'/store/women-fashion/',traffic:'7642',unique:'2000',bounce_rate:'26.1711593823606%'},
-    {page:'/store/men-fashion/',traffic:'3447',unique:'2000',bounce_rate:'58.021467943139%'},
-    {page:'/store/dashboard/',traffic:'3250',unique:'3800',bounce_rate:'116.923076923077%'},
-    {page:'/inbox/',traffic:'5533',unique:'4400',bounce_rate:'79.5228628230616%'}
+    return [{page:'/store/',traffic:'4283',unique:'3000',bounce_rate:'70.04%'},
+    {page:'/store/women-fashion/',traffic:'7642',unique:'2000',bounce_rate:'26.17%'},
+    {page:'/store/men-fashion/',traffic:'3447',unique:'2000',bounce_rate:'58.021'},
+    {page:'/store/dashboard/',traffic:'3250',unique:'3800',bounce_rate:'116.92%'},
+    {page:'/inbox/',traffic:'5533',unique:'4400',bounce_rate:'79.52%'}
     ];
 
   }
 
 
   getSocialStats(){
-    return [{network:'twitter',traffic:'4283',achieved:70.044361428905},
-    {network:'linkedin',traffic:'7642',achieved:26.1711593823606},
-    {network:'facebook',traffic:'3447',achieved:58.021467943139},
-    {network:'Instagram',traffic:'3250',achieved:11.923076923077},
-    {network:'youtube',traffic:'5533',achieved:79.5228628230616},
+    return [{network:'twitter',traffic:'4283',achieved:70.04},
+    {network:'linkedin',traffic:'7642',achieved:26.17},
+    {network:'facebook',traffic:'3447',achieved:58.02},
+    {network:'Instagram',traffic:'3250',achieved:11.92},
+    {network:'youtube',traffic:'5533',achieved:79.52},
     ]
   }
 
-
+  updateChartData(newData){
+    this.updatingDataSubject.next(newData);
+  }
 }

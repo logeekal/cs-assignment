@@ -10,6 +10,9 @@
                 [items]="seletableMonths"
                 [withIcon]=false
                 [width]="60"
+                defaultId="DEC"
+                (selectionChanged)="monthChanged($event)"
+                
               >           
               </app-select>  
             </div>
@@ -17,7 +20,9 @@
               <app-select
               [items]="selectableYears"
               [withIcon]=false
-              [width]="50"
+              [width]="60"
+              [defaultId]="2017"
+              (selectionChanged)="yearChanged($event)"
             >
             </app-select>  
         </div>
@@ -63,8 +68,8 @@
       [type]="type"
       [datasetOptions]="datasetOptions"
       [chartOptions]="chartOptions"
-      width="100"
-      height="40"
+      width="160"
+      height="80"
       [data]="data"
     >
     </app-chart>
