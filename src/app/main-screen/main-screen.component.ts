@@ -26,6 +26,7 @@ import { MatDrawer } from '@angular/material/sidenav';
       this.sideNavMode = 'side';
       this.drawerOpened = true;
       this.mainElement =  this.elementRef.nativeElement.querySelector('.mat-sidenav-container');
+      this.checkWidth();
       console.log(this.mainElement)
     }
 
@@ -34,6 +35,11 @@ import { MatDrawer } from '@angular/material/sidenav';
       // console.log(`Resize event fired ${JSON.stringify(event)}`);
       console.log(this.elementRef)
       console.log(this.elementRef.nativeElement.clientWidth);
+      let width = this.elementRef.nativeElement.clientWidth;
+     this.checkWidth();
+    }
+
+    checkWidth(){
       let width = this.elementRef.nativeElement.clientWidth;
       if(width < 1000){
         this.sideNavMode = 'over';
@@ -46,7 +52,6 @@ import { MatDrawer } from '@angular/material/sidenav';
        
       }
     }
-
 
     openDrawer(){
       return this.drawerOpened;
