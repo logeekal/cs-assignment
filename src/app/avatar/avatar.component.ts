@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-avatar',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AvatarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private domSanitizer:DomSanitizer) {
+
+   }
 
   ngOnInit() {
+    // this.image = this.domSanitizer.bypassSecurityTrustResourceUrl()
   }
 
 }

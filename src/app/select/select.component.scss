@@ -10,6 +10,19 @@
 
   $foreground: map-get($map: $theme, $key: foreground);
 
+.mat-form-field {
+    .mat-form-field-wrapper{
+      padding: 0px;
+      .mat-form-field-flex {
+        .mat-form-field-infix {
+          padding: 0px !important;
+          margin: 0px !important;
+          border: 0px !important;
+        }
+      }
+    }
+  }
+
   // ::ng-deep .mat-form-field {
   //   font-size: 1rem;
   //   font-weight: 400;
