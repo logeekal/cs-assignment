@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
       selected: 1,
       items: ['Performance', 'Growth', 'Historical']
     },{
-      header: "Calender",
+      header: "Calendar",
       logo: "calendar",
       icon: 'expand_more',
       selected: false,

@@ -16,7 +16,8 @@ export class ThemeToggleComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.isDarkTheme =  this.themeService.setDarkTheme;
+    this.isDarkTheme =  this.themeService.isDarkTheme;
+    this.themeService.setDarkTheme(false);
   }
 
   toggleDarkTheme(value){

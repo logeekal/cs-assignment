@@ -7,7 +7,7 @@
 @import '../app/social-traffic/social-traffic.component';
 @import '../app/page-stats/page-stats.component';
 @import '../app/app.component';
-
+@import '../app/theme-toggle/theme-toggle.component';
 
 @mixin componentThemes($theme) {
     @include app($theme);
@@ -19,6 +19,7 @@
     @include main-screen($theme);
     @include social-traffic($theme);
     @include page-stats($theme);
+    @include theme-toggle($theme);
 }
 
 

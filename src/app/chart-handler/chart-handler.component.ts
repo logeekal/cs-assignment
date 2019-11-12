@@ -177,7 +177,7 @@ export class ChartHandlerComponent implements OnInit {
 
     this.completedata = this.dataProvider.prepareData(this.name, this.datasetOptions);
     this.currentMonth = 'December';
-    this.currentYear = 2017;
+    this.currentYear = '2017';
 
     let detailData =  this.completedata.finalData;
     let summaryData = this.completedata.summary;

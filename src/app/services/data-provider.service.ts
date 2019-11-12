@@ -371,8 +371,8 @@ export class DataProviderService {
   getPageStats(){
     return [{page:'/store/',traffic:'4283',unique:'3000',bounce_rate:'70.04%'},
     {page:'/store/women-fashion/',traffic:'7642',unique:'2000',bounce_rate:'26.17%'},
-    {page:'/store/men-fashion/',traffic:'3447',unique:'2000',bounce_rate:'58.021'},
-    {page:'/store/dashboard/',traffic:'3250',unique:'3800',bounce_rate:'116.92%'},
+    {page:'/store/men-fashion/',traffic:'3447',unique:'2000',bounce_rate:'58.02%'},
+    {page:'/store/dashboard/',traffic:'3250',unique:'3800',bounce_rate:'16.92%'},
     {page:'/inbox/',traffic:'5533',unique:'4400',bounce_rate:'79.52%'}
     ];
 

@@ -8,7 +8,7 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 })
 export class MenuItemComponent implements OnInit {
 
-  @Input() menu: Object;
+  @Input() menu: any;
 
   isExpanded : boolean = false;
 

@@ -27,7 +27,7 @@ export class SelectComponent implements OnInit {
 
   public labelKey: string = 'label';
 
-  public originalItems: Array<Object>
+  public originalItems: Array<any>
 
   public model : Object;
 

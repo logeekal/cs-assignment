@@ -19,6 +19,7 @@
   th.mat-header-cell {
     padding: 1rem !important;
     text-align: center;
+    
   }
 
   th.mat-header-cell  {
@@ -30,5 +31,9 @@
     text-transform: uppercase;
     text-align: center;
     
+  }
+
+  .big-2 {
+    min-width: 80px !important;
   }
 }

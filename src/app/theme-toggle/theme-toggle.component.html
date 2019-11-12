@@ -1,7 +1,7 @@
 <mat-slide-toggle
   class="example-margin"
   [color]="color"
-  [checked]="isDarkTheme"
+  [checked]="isDarkTheme | async"
   (change)="toggleDarkTheme($event.checked)"
   >
   Dark Theme
