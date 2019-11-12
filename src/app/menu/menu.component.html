@@ -1,15 +1,19 @@
 <div class="home-nav">
   <i class="home-icon" data-feather="home"></i>
 </div>
-<hr class="full" />
+<mat-divider></mat-divider>
 <div class="avatar">
   <app-avatar></app-avatar>
 </div>
 
-<hr class="full" />
-<div *ngFor="let menuItem of menu">
+<!-- <hr class="full" /> -->
+<!-- <mat-divider></mat-divider> -->
+<div class="menu-item" *ngFor="let menuItem of menu">
   <app-menu-item [menu]="menuItem"> </app-menu-item>
-  <hr class="compact" />
+  <div class="compact">
+      <mat-divider></mat-divider>
+  </div>
+  
 </div>
 <div class="recent-items">
   <div class="recent-items-heading">Recent items</div>

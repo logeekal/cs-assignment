@@ -62,7 +62,17 @@
             };
         
     }
-    
+
+
+    .menu-item{
+        .compact{
+            display: flex;
+            justify-content: center;
+            .mat-divider {
+                width: 80%;
+            }
+        }
+    }
 
     .recent-items{
         padding: 1.8rem;

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ThemeToggleComponent implements OnInit {
 
-  private isDarkTheme : Observable<boolean>;
+  public isDarkTheme : Observable<boolean>;
 
   constructor(private themeService : ThemeService) {
 

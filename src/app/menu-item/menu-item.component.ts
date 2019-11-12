@@ -28,7 +28,7 @@ export class MenuItemComponent implements OnInit {
     this.menu['icon'] = 'expand_less'
   }
 
-  whenClosed(index){
+  whenClosed(){
     this.menu['icon'] = 'expand_more'
   }
 
