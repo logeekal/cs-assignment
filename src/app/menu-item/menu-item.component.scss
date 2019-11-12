@@ -4,6 +4,8 @@
 
 $background : map-get($map: $theme, $key: background );
 $foreground : map-get($map: $theme, $key: foreground );
+$accent : map-get($map: $theme, $key: accent );
+$primary: map-get($map: $theme, $key: primary );
 
 
   mat-expansion-panel {
@@ -32,7 +34,7 @@ $foreground : map-get($map: $theme, $key: foreground );
 
   .mat-expansion-panel-header-title {
     padding: 0px !important;
-    color: mat-color($foreground, A100) !important; 
+    color: mat-color($foreground, text) !important; 
     margin: 0px !important;
     justify-content: flex-start;
     align-items: center;
@@ -57,10 +59,18 @@ $foreground : map-get($map: $theme, $key: foreground );
       justify-content: flex-start;
       align-items: center;
       font-weight: medium;
+     
       .mat-list-item-content {
-        padding: 0.5rem !important;
+        padding: 0.4rem  0.8rem !important;
         margin: 0px;
         height: auto;
+        color: mat-color($foreground, text);
+        font-weight: 500;
+        font-size: 1rem;
+        &:hover{
+          cursor: pointer;
+          color: mat-color($accent);
+        };
       }
     }
   }
@@ -76,6 +86,19 @@ $foreground : map-get($map: $theme, $key: foreground );
     height: 1rem;
     color: mat-color($foreground, icon);
     padding: 5px;
+  }
+
+  .selected {
+    color: mat-color($primary) ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 }
 

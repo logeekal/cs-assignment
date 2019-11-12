@@ -1,4 +1,7 @@
-table {
+@import "~@angular/material/theming";
+
+@mixin page-stats($theme) {
+  table {
     width: 100%;
   }
 
@@ -6,4 +9,19 @@ table {
     padding: 1rem !important;
   }
 
+  
+  td.mat-cell,
+  td.mat-footer-cell,
+  th.mat-header-cell {
+    padding: 1rem !important;
+    text-align: center !important;
+  }
+
+ .page{
+   text-align: left !important;
+ }
  
+ .big {
+   min-width: 100px !important;
+ }
+}

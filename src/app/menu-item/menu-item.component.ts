@@ -10,11 +10,17 @@ export class MenuItemComponent implements OnInit {
 
   @Input() menu: Object;
 
+  isExpanded : boolean = false;
+
   constructor() { }
 
   ngOnInit() {  
     console.log('Now generating menu item;')
     console.log(this.menu)
+    if(this.menu.selected){
+      console.log(`is expanded is true for ${JSON.stringify(this.menu)}`)
+      this.isExpanded= true;
+    }
   }
 
   whenOpened(){

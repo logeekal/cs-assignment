@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
 import { DataProviderService } from './services/data-provider.service';
 import { ThemeService } from './services/theme/theme.service';
@@ -21,7 +21,6 @@ export class AppComponent {
   constructor(private themeService: ThemeService,  private dataProvider : DataProviderService){
 
   }
-
 
 
   ngOnInit(){

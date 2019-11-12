@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Host, HostListener } from '@angular/core';
 import { ThemeService } from './../services/theme/theme.service';
 import { Observable } from 'rxjs';
 
@@ -17,7 +17,6 @@ export class ThemeToggleComponent implements OnInit {
 
   ngOnInit() {
     this.isDarkTheme =  this.themeService.setDarkTheme;
-
   }
 
   toggleDarkTheme(value){

@@ -1,16 +1,32 @@
 <div class="home-nav">
-    <i class="home-icon" data-feather="home"></i>
+  <i class="home-icon" data-feather="home"></i>
 </div>
 <hr class="full" />
 <div class="avatar">
-    <app-avatar></app-avatar>
+  <app-avatar></app-avatar>
 </div>
 
 <hr class="full" />
 <div *ngFor="let menuItem of menu">
+  <app-menu-item [menu]="menuItem"> </app-menu-item>
+  <hr class="compact" />
+</div>
+<div class="recent-items">
+  <div class="recent-items-heading">Recent items</div>
 
-    <app-menu-item [menu]="menuItem">
+  <div class="recent-items-list">
+    <ul>
+      <li> Overall Performance 
+        <mat-icon>keyboard_arrow_right</mat-icon>
 
-    </app-menu-item>
-    <hr class="compact" />
+      </li>
+      <li> Invoicing 
+            <mat-icon>keyboard_arrow_right</mat-icon>
+
+      </li>
+      <li> Customer Master 
+            <mat-icon>keyboard_arrow_right</mat-icon>
+      </li>
+    </ul>
+  </div>
 </div>

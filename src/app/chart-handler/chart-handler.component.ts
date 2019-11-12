@@ -28,7 +28,7 @@ export class ChartHandlerComponent implements OnInit {
 
   public currentMonth: string;
 
-  public currentYear: number;
+  public currentYear: string;
 
   public trendData : any;
   

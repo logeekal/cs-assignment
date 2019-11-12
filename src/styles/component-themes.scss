@@ -4,15 +4,21 @@
 @import '../app/menu-item/menu-item.component';
 @import '../app/select/select.component';
 @import '../app/main-screen/main-screen.component';
+@import '../app/social-traffic/social-traffic.component';
+@import '../app/page-stats/page-stats.component';
+@import '../app/app.component';
 
 
 @mixin componentThemes($theme) {
+    @include app($theme);
     @include chart-handler($theme);
     @include avatar($theme);
     @include side-menu($theme);
     @include menu-item($theme);
     @include select($theme);
-    @include main-screen($theme)
+    @include main-screen($theme);
+    @include social-traffic($theme);
+    @include page-stats($theme);
 }
 
 

@@ -16,17 +16,20 @@ export class MenuComponent implements OnInit {
       header: "Dashboard",
       logo: "align-left",
       icon: 'expand_more',
-      items: ['Item1', 'item2', 'item3']
+      selected: 1,
+      items: ['Performance', 'Growth', 'Historical']
     },{
       header: "Calender",
       logo: "calendar",
       icon: 'expand_more',
-      items: ['Item1', 'item2', 'item3']
+      selected: false,
+      items: ['Sample 1', 'Sample2', 'Sample3']
     },{
       header: "Inbox",
       logo: "mail",
       icon: 'expand_more',
-      items: ['Item1', 'item2', 'item3']
+      selected: false,
+      items: ['All Mail', 'Sent', 'Drafts']
     }]
   }
   

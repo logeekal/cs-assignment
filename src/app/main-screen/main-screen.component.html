@@ -1,14 +1,18 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav opened mode="side" role="navigation">
+<mat-drawer-container #mainScreen>
+  <mat-drawer #drawer opened [mode]="sideNavMode" [opened]="openDrawer()" role="navigation" >
     <app-menu></app-menu>
-  </mat-sidenav>
-  <mat-sidenav-content>
+  </mat-drawer>
+  <mat-drawer-content>
     <div class="main-content">
       <div class="main-content-header">
-        <div class="main-content-header-home">asd
-          <app-theme-toggle></app-theme-toggle>
+        <div class="main-content-header-home">
+          <div *ngIf="sideNavMode === 'over'">
+            <mat-icon aria-hidden="false" (click)="drawer.toggle()" aria-label="Example home icon">home</mat-icon>
+          </div>
+         
 
         </div>
+        <app-theme-toggle></app-theme-toggle>
         <app-select
           [items]="countryList"
           [withIcon]=true
@@ -61,10 +65,11 @@
             <div class="main-content-footer">
               <app-page-stats></app-page-stats>
               <app-social-traffic></app-social-traffic>
+              <app-social-traffic></app-social-traffic>
             </div>
 
       </div>
     </div>
 
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -8,52 +8,59 @@
   //     width: 50px ;
   // }
 
-  ::ng-deep .mat-form-field {
-    font-size: 1rem;
-    font-weight: 400;
-    width: 80px;
-    .mat-form-field-wrapper {
-      padding: 0px;
-      .mat-form-field-flex {
-        padding: 0px;
-        .mat-form-field-infix {
-          box-shadow: 0px 0px 1.5px 0.1px rgba(100, 100, 100, 1);
-          border-radius: 2px;
-          padding: 0rem;
+  $foreground: map-get($map: $theme, $key: foreground);
 
-          border: transparent;
-          height: 1rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          .mat-select {
-            .mat-select-placeholder {
-              width: fit-content;
-            }
-            .mat-select-trigger {
-              .mat-select-value {
-                padding-left: 5px;
-                width: fit-content;
-              }
-              .mat-select-arrow-wrapper {
-                .mat-select-arrow {
-                  border-left: 2px solid transparent;
-                  border-right: 2px solid transparent;
-                  border-top: 2px solid;
-                  margin: 0 4px;
-                  font-size: 1rem;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  // ::ng-deep .mat-form-field {
+  //   font-size: 1rem;
+  //   font-weight: 400;
+  //   width: 80px;
+  //   .mat-form-field-wrapper {
+  //     padding: 0px;
+  //     .mat-form-field-flex {
+  //       padding: 0px;
+  //       .mat-form-field-infix {
+  //         box-shadow: 0px 0px 1.5px 0.1px rgba(100, 100, 100, 1);
+  //         border-radius: 2px;
+  //         padding: 0rem;
 
-  ::ng-deep .mat-option   {
-    .mat-option-text    {
-        font-size: 1em !important;
-    }
-  }
+  //         border: transparent;
+  //         height: 1rem;
+  //         display: flex;
+  //         justify-content: center;
+  //         align-items: center;
+  //         .mat-select {
+  //           .mat-select-placeholder {
+  //             width: fit-content;
+  //           }
+  //           .mat-select-trigger {
+  //             .mat-select-value {
+  //               padding-left: 5px;
+  //               width: fit-content;
+  //             }
+  //             .mat-select-arrow-wrapper {
+  //               .mat-select-arrow {
+  //                 border-left: 2px solid transparent;
+  //                 border-right: 2px solid transparent;
+  //                 border-top: 2px solid;
+  //                 margin: 0 4px;
+  //                 font-size: 1rem;
+                  
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // ::ng-deep .mat-select-arrow{
+  //   color: mat-color($foreground, icon);
+  // }
+
+  // ::ng-deep .mat-option   {
+  //   .mat-option-text    {
+  //       font-size: 1em !important;
+  //   }
+  // }
 }

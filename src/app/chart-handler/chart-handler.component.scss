@@ -2,15 +2,19 @@
 
 @mixin chart-handler($theme) {
   $accent: map-get($theme, accent);
+  $primary: map-get($map: $theme, $key: primary);
   $background: map-get($theme, background);
   $background-color: mat-color($background, card);
   $color: mat-color($primary);
   $border-color: rgb(200, 200, 200);
   $trends-size: 8px;
+  $foreground:    map-get($map: $theme, $key: foreground);
+  
 
   .chart-handler-full {
     margin: 0px;
     background-color: $background-color;
+    box-shadow: 0.2px 0.2px 2px 1px rgba(0, 0, 0, 0.2);
     .chart-full-header {
       display: flex;
       flex-direction: row;
@@ -65,8 +69,8 @@
     .chart-title {
       text-transform: uppercase;
       margin-top: 0px;
-      // margin-bottom: 10px;
-      color: rgb(100, 100, 100);
+      margin: 5px 0px;
+      color: mat-color($foreground, icon);
     }
 
     .chart-summary {
@@ -77,13 +81,27 @@
     }
 
     .chart-trends {
-      padding-bottom: 5px;
+      padding: 5px 0px;
       font-size: 1rem;
+      .feather {
+        vertical-align: middle !important;
+        
+      };
       .trend-down {
-        color: red;
+        color: red !important;
+        .feather  {
+          color: red !important;
+        }
       }
       .trend-up {
-        color: green;
+        color: green !important;
+        .feather  {
+          color: green !important;
+        }
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
       }
       .feather {
         width: 1rem;
