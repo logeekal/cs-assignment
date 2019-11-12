@@ -36,7 +36,7 @@ import { MatDrawer } from '@angular/material/sidenav';
       console.log(this.elementRef)
       console.log(this.elementRef.nativeElement.clientWidth);
       let width = this.elementRef.nativeElement.clientWidth;
-     this.checkWidth();
+      this.checkWidth();
     }
 
     checkWidth(){
