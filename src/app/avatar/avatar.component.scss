@@ -57,6 +57,12 @@
                 };            
             };
         
+            &:hover{
+                cursor: pointer;
+                .avatar{
+                            opacity: 50%;
+                        };
+            }
             // &:hover {
             //     cursor: pointer;
             //     .avatar{
