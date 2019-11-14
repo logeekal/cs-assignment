@@ -26,6 +26,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-bottom: 1px solid mat-color($foreground, divider);
         .home-icon  {
             cursor: pointer;
         }
@@ -34,7 +35,7 @@
     
     
     .avatar {
-        height: 18rem;
+        height: 13rem;
         display: flex;
         align-items: center;
         justify-content: center;;
@@ -80,21 +81,22 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             color: mat-color($foreground, icon);
-            font-weight: 500;
+            font-weight: 900;
         };
         .recent-items-list{
             padding: 0px;
             margin:0px;
             color: mat-color($foreground, text);
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             text-align: left;
-            text-transform: uppercase;
+            font-weight: bolder;
+            // text-transform: uppercase;
             ul{
                 margin:0px;
                 padding: 5px 0px;
                 list-style-type: none;
                 li {
-                    padding: 10px 0px;
+                    padding: 6px 0px;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;

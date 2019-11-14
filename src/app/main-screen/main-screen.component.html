@@ -9,10 +9,12 @@
           <div *ngIf="sideNavMode === 'over'">
             <mat-icon aria-hidden="false" (click)="drawer.toggle()" aria-label="Example home icon">menu_open</mat-icon>
           </div>
-         
+         <div class="screen-title">
+           Dashboard
+         </div>
 
         </div>
-        <app-theme-toggle></app-theme-toggle>
+        <!-- <app-theme-toggle></app-theme-toggle> -->
         <app-select
           [items]="countryList"
           [withIcon]=true
@@ -31,41 +33,49 @@
             </div>
         
             <div class="summary-chart">
-              <app-chart-handler
-                mode="compact"
-                name="avg. daily users"
-                colorString="rgb(200,50,50)"
-              >
-              </app-chart-handler>
-              <app-chart-handler
-                mode="compact"
-                name="Total Visits"
-                colorString="rgb(200,50,50)"
-              >
-              </app-chart-handler>
-              <app-chart-handler
-                mode="compact"
-                name="Bounce Rate"
-                colorString="rgb(200,50,50)"
-              >
-              </app-chart-handler>
-              <app-chart-handler
-                mode="compact"
-                name="Avg. visit duration"
-                colorString="rgb(200,50,50)"
-              >
-              </app-chart-handler>
-              <app-chart-handler
-                mode="compact"
-                name="Unique Visitors"
-                colorString="rgb(200,50,50)"
-              >
-              </app-chart-handler>
+              <div class="summary-chart-individual">
+                  <app-chart-handler
+                  mode="compact"
+                  name="avg. daily users"
+                  colorString="rgb(200,50,50)"
+                >
+                </app-chart-handler>
+              </div>
+
+              <div class="summary-chart-individual">
+                <app-chart-handler
+                  mode="compact"
+                  name="Total Visits"
+                  colorString="rgb(200,50,50)"
+                >
+                </app-chart-handler>
+              </div>
+
+              <div class="summary-chart-individual">
+                <app-chart-handler
+                  mode="compact"
+                  name="Bounce Rate"
+                  colorString="rgb(200,50,50)"
+                >
+                </app-chart-handler>
+            </div>
+              <div class="summary-chart-individual">
+                <app-chart-handler
+                  mode="compact"
+                  name="Avg. visit duration"
+                  colorString="rgb(200,50,50)"
+                >
+                </app-chart-handler>
+              </div>
             </div>
             <div class="main-content-footer">
-              <div class="col"> <app-page-stats></app-page-stats></div>
-              <div class="col"><app-social-traffic></app-social-traffic></div>
-              <div class="col"> <app-social-traffic></app-social-traffic> </div>
+              <div class="page-stats-outer">
+                  <app-page-stats></app-page-stats>
+              </div>
+               
+               <div class="social-traffic-outer">
+                  <app-social-traffic></app-social-traffic>
+               </div>
               
               
             </div>

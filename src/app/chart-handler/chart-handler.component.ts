@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from "@angular/core";
 import * as Color from "color";
-import randomColor  from 'randomcolor';
-import { DataProviderService } from './../services/data-provider.service';
-import { Subject } from 'rxjs';
+import randomColor from "randomcolor";
+import { DataProviderService } from "./../services/data-provider.service";
+import { Subject } from "rxjs";
+import { blue } from "color-name";
 
 @Component({
   selector: "app-chart-handler",
@@ -30,71 +31,89 @@ export class ChartHandlerComponent implements OnInit {
 
   public currentYear: string;
 
-  public trendData : any;
-  
+  public trendData: any;
 
+  public selectableYears: Array<Object> = [];
 
-
-  public selectableYears : Array<Object> = [];
-
-  public seletableMonths : Array<Object> = [];
+  public seletableMonths: Array<Object> = [];
 
   constructor(private dataProvider: DataProviderService) {
-    for(let year of this.dataProvider.years){
+    for (let year of this.dataProvider.years) {
       this.selectableYears.push({
         id: year,
         label: year
       });
     }
 
-    for(let month in this.dataProvider.months){
+    for (let month in this.dataProvider.months) {
       this.seletableMonths.push({
         idx: month,
-        id: this.dataProvider.months[month]['month'].substring(0,3).toUpperCase(),
-        label: this.dataProvider.months[month]['month']
-    });
-  }
-
-    console.log(this.seletableMonths);
-    console.log(this.selectableYears)
+        id: this.dataProvider.months[month]["month"]
+          .substring(0, 3)
+          .toUpperCase(),
+        label: this.dataProvider.months[month]["month"]
+      });
     }
 
+    console.log(this.seletableMonths);
+    console.log(this.selectableYears);
+  }
+
   ngOnInit() {
-
-
-
-
-    this.color = new Color(randomColor({format:'rgb', luminosity: 'dark'}));
-    console.log(`Color is :`)
+    this.color = new Color(randomColor({ format: "rgb", luminosity: "dark" }));
+    console.log(`Color is :`);
     console.log(this.color);
-    
-    if (this.mode === "full") {
 
+    if (this.mode === "full") {
       this.chartOptions = {
+       
+
         showLines: true,
         responsive: true,
         scales: {
           yAxes: [
             {
               display: true,
-              ticks:  {
-                beginAtZero: false,
-                stepSize: 30,
+              position: "right",
 
+              ticks: {
+                callback: (value, index, values) => {
+                  console.log("=========================");
+                  console.log(value);
+                  console.log(index);
+                  console.log(values);
+                  console.log("=========================");
+                  if (index === 0) {
+                    return undefined;
+                  } else {
+                    return value;
+                  }
+                },
+                beginAtZero: false,
+                stepSize: 18,
+                display: true,
+                labelOffset: -30
               },
               gridLines: {
-                display: true
+                display: true,
+                // color: "transparent",
+                offsetGridLines: false,
+                zeroLineWidth: 1,
+                zeroLineColor: "#ccc"
               }
             }
           ],
           xAxes: [
             {
               display: true,
-              gridLines:{
-                display: false,
+              gridLines: {
+                display: true,
+                color: "transparent",
+                zeroLineWidth: 0,
+                zeroLineColor: "#ccc",
+                drawTicks: true
               },
-              ticks:  {
-              }
+              ticks: {}
             }
           ]
         },
@@ -113,21 +132,23 @@ export class ChartHandlerComponent implements OnInit {
 
       this.datasetOptions = {
         backgroundColor: this.color.toString(),
-        barThickness: 20,
+        barThickness: 13,
         fill: true,
         borderCapStyle: "butt",
         borderWidth: 0,
+
         borderColor: this.color.toString()
       };
 
-      this.type = "bar"
-
-
-    } else if (["compact","slim"].includes(this.mode)) {
-      console.log(`Mode is ${this.mode}`)
+      this.type = "bar";
+    } else if (["compact", "slim"].includes(this.mode)) {
+      console.log(`Mode is ${this.mode}`);
       this.chartOptions = {
+       
+
         showLines: true,
         responsive: true,
+
         scales: {
           yAxes: [
             {
@@ -145,7 +166,7 @@ export class ChartHandlerComponent implements OnInit {
               },
               ticks: {
                 beginAtZero: true,
-                stepSize: 50,
+                stepSize: 50
               }
             }
           ]
@@ -169,73 +190,81 @@ export class ChartHandlerComponent implements OnInit {
         borderCapStyle: "butt",
         borderWidth: 1,
         borderColor: this.color.toString(),
-        pointRadius: 0,
+        pointRadius: 0
       };
 
-      this.type= "line"
+      this.type = "line";
     }
 
-    this.completedata = this.dataProvider.prepareData(this.name, this.datasetOptions);
-    this.currentMonth = 'December';
-    this.currentYear = '2017';
+    this.completedata = this.dataProvider.prepareData(
+      this.name,
+      this.datasetOptions
+    );
+    this.currentMonth = "December";
+    this.currentYear = "2017";
 
-    let detailData =  this.completedata.finalData;
+    let detailData = this.completedata.finalData;
     let summaryData = this.completedata.summary;
-    this.data =  detailData[this.currentYear][this.currentMonth];
+    this.data = detailData[this.currentYear][this.currentMonth];
   }
 
-
-
-  getSummaryData(){
-    let typeOfData = '';
-    let symbol = '';
+  getSummaryData() {
+    let typeOfData = "";
+    let symbol = "";
     let name = this.name.toLocaleLowerCase();
     // console.log(`in summary data :  `);
-    
-    let currentContext = this.completedata.summary[this.currentYear][this.currentMonth];
-    // console.log(this.completedata.summary)
-    if (name === 'bounce rate' || name.indexOf('avg') > -1){
-      typeOfData = 'average';
-      if(name === 'bounce rate'){
-        symbol = '%'
-      }else if (name === 'avg. visit duration'){
-        symbol = 's'
-      }
 
-    }else {
-      typeOfData = 'total';
+    let currentContext = this.completedata.summary[this.currentYear][
+      this.currentMonth
+    ];
+    // console.log(this.completedata.summary)
+    if (name === "bounce rate" || name.indexOf("avg") > -1) {
+      typeOfData = "average";
+      if (name === "bounce rate") {
+        symbol = "%";
+      } else if (name === "avg. visit duration") {
+        symbol = "s";
+      }
+    } else {
+      typeOfData = "total";
     }
 
-    return currentContext[typeOfData]+symbol
+    return currentContext[typeOfData] + symbol;
   }
 
-  getChartTrend(){
-    if(this.trendData){
-      return this.trendData
+  getChartTrend() {
+    if (this.trendData) {
+      return this.trendData;
     }
-    let trend =  (Math.ceil(Math.random()*10000)%99 < 20) ? -1 : 1;
+    let trend = Math.ceil(Math.random() * 10000) % 99 < 20 ? -1 : 1;
 
-    let trendAmount = Math.ceil(Math.random()*10000)%19;
+    let trendAmount = Math.ceil(Math.random() * 10000) % 19;
 
-    let trendExpression =  trendAmount+'%';
+    let prefix = trendAmount > 0 ? "+" : "-";
+    let trendExpression = prefix + trendAmount + "%";
 
-    this.trendData = {trendExpression, trend};
+    this.trendData = { trendExpression, trend };
 
     return this.trendData;
   }
 
-  monthChanged(month){
+  monthChanged(month) {
     this.currentMonth = month.label;
-    let newData =  this.completedata.finalData[this.currentYear][this.currentMonth];
+    let newData = this.completedata.finalData[this.currentYear][
+      this.currentMonth
+    ];
     this.dataProvider.updateChartData(newData);
-
   }
 
-  yearChanged(year){
+  yearChanged(year) {
     console.log(`Handling year ${year.id}`);
-    this.currentYear= `${year.id}`;
+    this.currentYear = `${year.id}`;
     console.log(this.completedata);
-    let newData =  this.completedata.finalData[this.currentYear][this.currentMonth];
+    let newData = this.completedata.finalData[this.currentYear][
+      this.currentMonth
+    ];
     this.dataProvider.updateChartData(newData);
   }
+
+
 }

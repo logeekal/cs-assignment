@@ -4,6 +4,8 @@
 @mixin main_screen($theme){
 
     $foreground : map-get($map: $theme, $key: foreground );
+    $background : map-get($map: $theme, $key: background );
+
 
     .main-sidenav-container{
         .mat-sidenav{
@@ -12,15 +14,15 @@
     }
 
     .mat-drawer{
-        min-width: 15%
+        width: 300px;
     }
     
     
     .main-content   {
         .main-content-header    {
             height: 4rem;
-            // background-color: $background;
-            border-bottom: 0.2px solid rgb(200,200,200);
+            background-color: mat-color($background, 'card');
+            border-bottom:1px solid mat-color($foreground, divider);
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -28,13 +30,35 @@
             padding: 0px 2rem;
             font-size: 1rem;
             .main-content-header-home{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
                 &:hover{
                     cursor: pointer;
+                };
+                .screen-title{
+                    font-weight: bold;
+                    padding: 3px;
                 }
             }
         };
         .main-content-body{
-            margin: 2rem;
+            margin: 1rem;
+            .detail-chart {
+                padding: 1rem; //Somehow margin was on top was not wortking.. not sure why
+            };
+            .summary-chart{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                align-items: center;
+                .summary-chart-individual{
+                    margin: 1rem;
+                    padding: 0px;
+                }
+            }
+
         }
     }
     
@@ -42,10 +66,20 @@
     .main-content-footer{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: stretch;
         flex-wrap: wrap;
         .col{
             align-self: center;
+        }
+        .page-stats-outer{
+            margin: 1rem;
+            flex: 0.7;
+            height: 100%
+        };
+        .social-traffic-outer{
+            margin: 1rem;
+            flex: 0.3;
+            height: 100%
         }
     }
     .mat-sidenav-content {
@@ -56,11 +90,7 @@
     
     
     .summary-chart {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: center;
+      
     }
 
     

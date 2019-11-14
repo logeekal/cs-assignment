@@ -9,7 +9,7 @@
               <app-select
                 [items]="seletableMonths"
                 [withIcon]=false
-                [width]="60"
+                [width]="70"
                 defaultId="DEC"
                 (selectionChanged)="monthChanged($event)"
                 
@@ -20,7 +20,7 @@
               <app-select
               [items]="selectableYears"
               [withIcon]=false
-              [width]="60"
+              [width]="70"
               [defaultId]="2017"
               (selectionChanged)="yearChanged($event)"
             >
@@ -37,7 +37,7 @@
           [datasetOptions]="datasetOptions"
           [chartOptions]="chartOptions"
           width="auto"
-          height="300"
+          height="250"
           [data]="data"
         >
       
@@ -57,10 +57,13 @@
     
     <span class="trend-down" *ngIf="getChartTrend().trend < 0">
         {{getChartTrend().trendExpression}}
-        <i class="trend-sign" data-feather="corner-right-down" color="red"></i>
+        <!-- <i class="trend-sign" data-feather="corner-right-down" color="red"></i> -->
+        <img class="trend-sign" src="./assets/icons/trend_down.png" />
     </span>
     <span class="trend-up" *ngIf="getChartTrend().trend > 0">
-        {{getChartTrend().trendExpression}}     <i data-feather="corner-right-up" color="green"></i>
+        {{getChartTrend().trendExpression}}     
+        <!-- <i data-feather="corner-right-up" color="green"></i> -->
+        <img class="trend-sign" src="./assets/icons/trend_up.png" />
       </span>
   </div>
   <app-chart
@@ -68,8 +71,8 @@
       [type]="type"
       [datasetOptions]="datasetOptions"
       [chartOptions]="chartOptions"
-      width="200"
-      height="80"
+      width="225"
+      height="75"
       [data]="data"
     >
     </app-chart>
@@ -81,8 +84,8 @@
     [type]="type"
     [datasetOptions]="datasetOptions"
     [chartOptions]="chartOptions"
-    width="auto"
-    height="20"
+    width="50"
+    height="6"
     [data]="data"
   >
   </app-chart>

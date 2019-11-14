@@ -25,11 +25,15 @@ export class MenuItemComponent implements OnInit {
 
   whenOpened(){
     console.log('Expansion panel fired.');
-    this.menu['icon'] = 'expand_less'
+    this.menu['icon'] = 'arrow_drop_up'
   }
 
   whenClosed(){
-    this.menu['icon'] = 'expand_more'
+    this.menu['icon'] = 'arrow_drop_down'
   }
 
+
+  getIcon(image){
+    return "./assets/icons/"+image+".png";
+  }
 }

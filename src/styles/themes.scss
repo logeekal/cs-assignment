@@ -1,7 +1,11 @@
 @import '~@angular/material/theming';
 @import './component-themes.scss';
 
-@include mat-core();
+//Changing typography
+$custom-typography: mat-typography-config( $font-family: "'Open Sans', 'sans-serif'");
+
+@include mat-core($custom-typography);
+
 
 
 
@@ -10,8 +14,8 @@
 @function custom_mat-light-theme-foreground($color) {
   @return (
   base:              $color,
-  divider:           rgba($color, 0.20),
-  dividers:          rgba($color, 0.20),
+  divider:           rgba($color, 0.10),
+  dividers:          rgba($color, 0.10),
   disabled:          rgba($color, 0.28),
   disabled-button:   rgba($color, 0.220),
   disabled-text:     rgba($color, 0.28),
@@ -25,6 +29,8 @@
   slider-off:        rgba($color, 0.20),
   slider-off-active: rgba($color, 0.28),
 )};
+
+
 
 
 

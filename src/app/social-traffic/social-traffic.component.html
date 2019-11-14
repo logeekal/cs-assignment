@@ -1,4 +1,10 @@
-<table mat-table [dataSource]="dataSet" class="mat-elevation-z8">
+<div class="social-traffic-container">
+  <div class="social-traffic-title">
+    Social Media Traffic
+  </div>
+  <div class="social-traffic-table">
+    
+<table class="middle" mat-table [dataSource]="dataSet" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -17,7 +23,7 @@
   
     <!-- Weight Column -->
     <ng-container class="big-2" matColumnDef="{{columnNames[2]}}">
-      <th class="big-2" mat-header-cell *matHeaderCellDef> % Achieved </th>
+      <th class="big-2" mat-header-cell *matHeaderCellDef></th>
       <td class="big-2" mat-cell *matCellDef="let element"> 
       <mat-progress-bar 
         mode="determinate" 
@@ -35,3 +41,6 @@
     <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
     <tr mat-row *matRowDef="let row; columns: columnNames;"></tr>
   </table>
+  </div>
+</div>
+

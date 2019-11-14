@@ -14,22 +14,38 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.menu = [{
       header: "Dashboard",
-      logo: "align-left",
-      icon: 'expand_more',
+      // logo: "align-left",
+      logo: "dashboard",
+      icon: 'arrow_drop_down',
       selected: 1,
       items: ['Performance', 'Growth', 'Historical']
     },{
       header: "Calendar",
       logo: "calendar",
-      icon: 'expand_more',
+      icon: 'arrow_drop_down',
       selected: false,
       items: ['Sample 1', 'Sample2', 'Sample3']
     },{
       header: "Inbox",
-      logo: "mail",
-      icon: 'expand_more',
+      // logo: "mail",
+      logo: "inbox",
+      icon: 'arrow_drop_down',
       selected: false,
       items: ['All Mail', 'Sent', 'Drafts']
+    },{
+      header: "Invoicing",
+      // logo: "mail",
+      logo: "invoice",
+      icon: 'arrow_drop_down',
+      selected: false,
+      items: []
+    },{
+      header: "Lab / Experimental",
+      // logo: "mail",
+      logo: "lab",
+      icon: 'arrow_drop_down',
+      selected: false,
+      items: []
     }]
   }
   

@@ -9,11 +9,19 @@
      
     >
       <div class="menuicon">
-        <mat-icon>{{ menu.icon }}</mat-icon>
+        <div class="special-menu" *ngIf="menu.header === 'Inbox'">
+           <img class="special-icon" [src]="getIcon('up-down')" />
+        </div>
+        <div *ngIf="menu.header === 'Dashboard'">
+            <mat-icon class="left-menu-icon">{{ menu.icon }}</mat-icon>
+        </div>
+        
       </div>
+      
       <mat-panel-title  >
         <div [class]="isExpanded ? 'selected' : 'heading'" >
-            <i [attr.data-feather]="menu.logo" class="icon"></i>
+            <!-- <i [attr.data-feather]="getIcon(menu.logo)" class="icon"></i> -->
+            <img [attr.src]="getIcon(menu.logo)" class="icon" />
             {{ menu.header }}
         </div>
 

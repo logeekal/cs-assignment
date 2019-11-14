@@ -17,6 +17,6 @@ export class PageStatsComponent implements OnInit {
   ngOnInit() {
     this.dataSet =  this.dataProvider.getPageStats();
     this.columnNames = Object.keys(this.dataSet[0]);
-    this.columnNames.push('trends')
+    // this.columnNames.push('trends')
   }
 }

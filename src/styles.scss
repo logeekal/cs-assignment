@@ -13,12 +13,14 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import './styles/themes';
 
-@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+
 
 html, body { height: 100%;}
 body { 
   margin: 0; 
-  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  font-family: 'Open Sans', "Helvetica Neue", sans-serif; 
   font-size: 10px;
  }
 

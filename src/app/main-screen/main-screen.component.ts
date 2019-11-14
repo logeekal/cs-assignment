@@ -41,7 +41,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 
     checkWidth(){
       let width = this.elementRef.nativeElement.clientWidth;
-      if(width < 1000){
+      if(width < 800){
         this.sideNavMode = 'over';
       }else{
         this.sideNavMode = 'side';

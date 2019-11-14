@@ -22,7 +22,7 @@
       justify-content: space-between;
       padding: 0px;
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: bold;
       .chart-full-header-title {
         padding: 1rem;
       }
@@ -56,8 +56,8 @@
     align-items: center;
     border: 0px solid black;
     font-size: 1rem;
-    padding: 1rem;
-    margin: 2rem 0px;
+    padding: 1.5rem;
+    // margin: 2rem 0px;
     box-shadow: 0.2px 0.2px 2px 1px rgba(0, 0, 0, 0.2);
     transition: all 0.4s;
     &:hover {
@@ -68,6 +68,8 @@
 
     .chart-title {
       text-transform: uppercase;
+      font-size: 1rem;
+      font-weight: bold;
       margin-top: 0px;
       margin: 5px 0px;
       color: mat-color($foreground, icon);
@@ -82,13 +84,16 @@
 
     .chart-trends {
       padding: 5px 0px;
-      font-size: 1rem;
+      font-size: 0.8rem;
       .feather {
         vertical-align: middle !important;
         
       };
       .trend-down {
         color: red !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .feather  {
           color: red !important;
         }
@@ -111,6 +116,11 @@
   }
 }
 
+
+.trend-sign{
+  width: 1.5rem;
+  padding: 10px;
+}
 // 
 
 // .trend-down {

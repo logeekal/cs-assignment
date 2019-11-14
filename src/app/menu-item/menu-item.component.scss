@@ -11,16 +11,25 @@ $primary: map-get($map: $theme, $key: primary );
   mat-expansion-panel {
     box-shadow: none !important;
     padding-left: 2rem !important;
-    padding-right: 2rem !important;
-    
+    padding-right: 2rem !important;    
   }
 
   .mat-expansion-panel-header {
     box-shadow: none;
     // font-size: 1rem;
-    font-weight: bold;
+    font-size: 0.86rem;
+    font-weight: bolder !important;
     color: mat-color($foreground, lighter);
     padding: 0px !important;
+  }
+
+  img.special-icon{
+    width: 1rem !important;
+    transform: translateX(-5px) translateY(12px) !important;
+  }
+
+  .special_menu {
+    color: mat-color($background, icon) !important;
   }
 
   .mat-icon {
@@ -29,7 +38,14 @@ $primary: map-get($map: $theme, $key: primary );
     // height: 1rem !important;
     display: inline-flex;
     vertical-align: middle !important;
+    
     // margin: 10px !important;
+  }
+
+  .left-menu-icon{
+    vertical-align: middle !important;
+    transform: translateX(-5px) translateY(10px) !important;
+
   }
 
   .mat-expansion-panel-header-title {
@@ -61,12 +77,12 @@ $primary: map-get($map: $theme, $key: primary );
       font-weight: medium;
      
       .mat-list-item-content {
-        padding: 0.4rem  0.8rem !important;
+        padding: 0rem  0.8rem 1.4rem 1rem !important;
         margin: 0px;
         height: auto;
         color: mat-color($foreground, text);
-        font-weight: 500;
-        font-size: 1rem;
+        font-weight:  600;
+        font-size: 0.9rem;
         &:hover{
           cursor: pointer;
           color: mat-color($accent);
@@ -79,6 +95,12 @@ $primary: map-get($map: $theme, $key: primary );
     box-shadow: none;
     margin: 0px !important;
     padding-top: 0px !important;
+  }
+
+  .icon {
+    width: 1.3rem;
+    height: 1.3rem;
+    padding: 10px;
   }
 
   svg {

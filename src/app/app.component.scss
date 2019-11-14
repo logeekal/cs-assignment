@@ -14,6 +14,9 @@ body{
     // background-color: mat-color($background, background);
     // border: 1px solid black;
     // box-shadow: 1px 1px 2px 1px black;
+    
+    background: mat-color($background, background);
+   
 }
 
 * {
@@ -24,6 +27,10 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    border-left: 1px solid mat-color($foreground, divider);
+    border-right: 1px solid mat-color($foreground, divider);
+
+    margin: 0px 160px;
 }
 
 .header-bar {

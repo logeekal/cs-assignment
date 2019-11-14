@@ -1,6 +1,23 @@
 @import "~@angular/material/theming";
 
 @mixin page-stats($theme) {
+
+  $foreground: map-get($map: $theme, $key: foreground);
+
+  $background: map-get($map: $theme, $key: background);
+
+
+  .page-stats-container{
+    background-color:mat-color($background, card);;
+    box-shadow: 0.2px 0.2px 2px 1px rgba(0, 0, 0, 0.2);
+    .page-stats-title {
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+
+
   table {
     width: 100%;
   }
@@ -11,17 +28,51 @@
 
   
   td.mat-cell,
-  td.mat-footer-cell,
-  th.mat-header-cell {
+  td.mat-footer-cell{
     padding: 1rem !important;
-    text-align: center !important;
+    // text-align: center !important;
+    border-left: 0px;
+    border-right: 0px;
+    color: black !important;
   }
 
- .page{
-   text-align: left !important;
+  th.mat-header-cell {
+    padding: 1rem !important;
+    text-align: center ;
+    border-left: 0px;
+    border-right: 0px;
+    font-weight: bold;
+ 
+
+  }
+
+  th.mat-header-cell .page{
+   
+ }
+
+
+ .new-window{
+   width: 1rem;
+   height: 1rem;
+   padding: 10px;
+   cursor: pointer;
+ }
+
+ .combined{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   .bounce-text{
+     flex: 0.2
+   };
+   .bounce-picture{
+     flex:0.8
+   }
+   
  }
  
- .big {
-   min-width: 180px !important;
- }
+//  .big {
+//    min-width: 50px !important;
+ 
+//  }
 }
